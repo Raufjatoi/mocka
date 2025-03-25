@@ -1,34 +1,26 @@
-import { initializeApp, getApps, cert } from 'firebase-admin/app';
-import { getAuth } from 'firebase-admin/auth';
-import { getFirestore } from 'firebase-admin/firestore';
+import { initializeApp, getApps, cert } from "firebase-admin/app";
+import { getAuth } from "firebase-admin/auth";
+import { getFirestore } from "firebase-admin/firestore";
 
-let authInstance: ReturnType<typeof getAuth> | null = null;
-let dbInstance: ReturnType<typeof getFirestore> | null = null;
+// Initialize Firebase Admin SDK
+function initFirebaseAdmin() {
+  const apps = getApps();
 
-const initFirebaseAdmin = () => {
-    if (!getApps().length) {
-        if (
-            !process.env.FIREBASE_PROJECT_ID ||
-            !process.env.FIREBASE_CLIENT_EMAIL ||
-            !process.env.FIREBASE_PRIVATE_KEY
-        ) {
-            throw new Error('Missing Firebase environment variables.');
-        }
+  if (!apps.length) {
+    initializeApp({
+      credential: cert({
+        projectId: process.env.FIREBASE_PROJECT_ID,
+        clientEmail: process.env.FIREBASE_CLIENT_EMAIL,
+        // Replace newlines in the private key
+        privateKey: process.env.FIREBASE_PRIVATE_KEY?.replace(/\\n/g, "\n"),
+      }),
+    });
+  }
 
-        initializeApp({
-            credential: cert({
-                projectId: process.env.FIREBASE_PROJECT_ID,
-                clientEmail: process.env.FIREBASE_CLIENT_EMAIL,
-                privateKey: process.env.FIREBASE_PRIVATE_KEY.replace(/\\n/g, '\n')
-            })
-        });
-    }
+  return {
+    auth: getAuth(),
+    db: getFirestore(),
+  };
+}
 
-    authInstance = getAuth();
-    dbInstance = getFirestore();
-};
-
-initFirebaseAdmin();
-
-export const auth = authInstance;
-export const db = dbInstance;
+export const { auth, db } = initFirebaseAdmin();
