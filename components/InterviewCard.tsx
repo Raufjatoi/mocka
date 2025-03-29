@@ -6,7 +6,7 @@ import { getRandomInterviewCover } from '@/lib/utils';
 import DisplayTechicons from './DisplayTechicons';
 
 
-const InterviewCard = ({interviewId , userId, role, type, techstack, createdAt}: InterviewCardProps) => {
+const InterviewCard = ({id , userId, role, type, techstack, createdAt}: InterviewCardProps) => {
     const feedback = null as Feedback | null;
     const normalizedType = /mix/gi.test(type)? 'Mixed' : type;
     const formattedDate = dayjs(feedback?.createdAt || createdAt || Date.now()).format('MMM D, YYYY'); 
@@ -42,7 +42,7 @@ const InterviewCard = ({interviewId , userId, role, type, techstack, createdAt}:
             <div className='flex flex-row justify-between'>
                 <DisplayTechicons techStack={techstack}/>
                 <Button className="btn-primary">
-                    <Link href={feedback ? `/interview/${interviewId}/feedback`: `/interview/${interviewId}` }>
+                    <Link href={feedback ? `/interview/${id}/feedback`: `/interview/${id}` }>
                     {feedback ? 'Check Feedback': "view interview"}
                     </Link>
                 </Button>
