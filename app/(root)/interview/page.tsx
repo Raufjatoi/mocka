@@ -6,7 +6,7 @@ const page = async () => {
   
   return (
     <>
-      <h3> Interview Generation </h3>
+      <h3 className='text-blue-500'> Interview Generation </h3>
       <Agent userName={user?.name} userId={user?.id} type="generate" />
     </>
   );

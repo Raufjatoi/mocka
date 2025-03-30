@@ -11,6 +11,7 @@ const monaSans = Mona_Sans({
 export const metadata: Metadata = {
   title: "Mocka",
   description: "An AI-Powered platform for preparing for mock interviews",
+  icons: "/m.png",
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
