@@ -98,14 +98,14 @@ const AuthForm = ({ type }: { type: FormType }) => {
   const isSignIn = type === "sign-in";
 
   return (
-    <div className="card-border lg:min-w-[566px]">
-      <div className="flex flex-col gap-6 card py-14 px-10">
+    <div className="card-border lg:min-w-[566px] border border-b-blue-950">
+      <div className="flex flex-col gap-6 card py-14 px-10 bg-gradient-to-r from-blue-600 to-cyan-400">
         <div className="flex flex-row gap-2 justify-center">
           <Image src="/m.png" alt="logo" height={32} width={38} />
-          <h2 className="text-primary-100">PrepWise</h2>
+          <h2 className="text-blue-700">Mocka</h2>
         </div>
 
-        <h3>Practice job interviews with AI</h3>
+        <h3 className="text-blue-900">Practice job interviews with AI in real time by talking</h3>
 
         <Form {...form}>
           <form

@@ -178,12 +178,12 @@ const Agent = ({
       </div>
 
       {messages.length > 0 && (
-        <div className="transcript-border">
-          <div className="transcript p-4 bg-gray-100 rounded-lg shadow-md">
+        <div className="transcript-border border border-b-blue-50">
+          <div className="transcript p-4 bg-gradient-to-r from-blue-600 to-cyan-400 rounded-lg shadow-md">
             <p
               key={lastMessage}
               className={cn(
-                "transition-opacity duration-500 opacity-0 text-gray-700 text-base italic",
+                "transition-opacity duration-500 opacity-0 text-blue-700 text-base italic",
                 "animate-fadeIn opacity-100"
               )}
             >

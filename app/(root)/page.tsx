@@ -25,21 +25,21 @@ async function Home() {
     <>
       <section className="card-cta bg-gradient-to-r from-blue-600 to-cyan-400 p-6 rounded-xl shadow-lg text-white">
         <div className="flex flex-col gap-6 max-w-lg">
-          <h2 className="text-3xl font-bold">🔥 Get Interview-Ready with AI!</h2>
-          <p className="text-lg opacity-90">
+          <h2 className="text-3xl font-bold">Get Interview-Ready with AI </h2>
+          <p className="text-lg opacity-90 text-cyan-50">
             Level up your game with real interview questions & instant feedback. No more guesswork, just results.
           </p>
 
-          <Button asChild className="border border-white hover:bg-white hover:text-blue-600 transition-all max-sm:w-full">
-            <Link href="/interview">🚀 Start Practicing Now</Link>
+          <Button asChild className="border  border-white bg-cyan-300 hover:bg-white text-blue-600 transition-all max-sm:w-full">
+            <Link href="/interview">Create an Interview</Link>
           </Button>
         </div>
       </section>
 
       <section className="flex flex-col gap-6 mt-10">
-        <h2 className="text-2xl font-semibold text-blue-600">📌 Your Interview Journey</h2>
+        <h2 className="text-2xl font-semibold text-blue-600">Your Interview Journey</h2>
 
-        <div className="interviews-section bg-gray-100 p-4 rounded-lg shadow">
+        <div className="interviews-section bg-gradient-to-r from-blue-600 to-cyan-400 p-4 rounded-lg shadow">
           {hasPastInterviews ? (
             userInterviews?.map((interview) => (
               <InterviewCard
@@ -53,15 +53,15 @@ async function Home() {
               />
             ))
           ) : (
-            <p className="text-gray-500">You haven't taken any interviews yet. Time to change that! 🚀</p>
+            <p className="text-cyan-50">You haven't taken any interviews yet. Create one please ☺️</p>
           )}
         </div>
       </section>
 
       <section className="flex flex-col gap-6 mt-10">
-        <h2 className="text-2xl font-semibold text-blue-600">🎯 Upcoming Interviews</h2>
+        <h2 className="text-2xl font-semibold text-blue-600">Others Interview</h2>
 
-        <div className="interviews-section bg-gray-100 p-4 rounded-lg shadow">
+        <div className="interviews-section bg-gradient-to-r from-blue-600 to-cyan-400 p-4 rounded-lg shadow">
           {hasUpcomingInterviews ? (
             allInterview?.map((interview) => (
               <InterviewCard
@@ -75,7 +75,7 @@ async function Home() {
               />
             ))
           ) : (
-            <p className="text-gray-500">No interviews available yet. Stay tuned! 🔥</p>
+            <p className="text-cyan-50">No interviews available yet. Stay tuned ^^</p>
           )}
         </div>
       </section>
